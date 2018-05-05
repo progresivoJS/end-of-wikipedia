@@ -1,3 +1,5 @@
+import time
+
 def continue_crawl(search_history, target_url, max_steps=25):
     """
     Determine whether we continue crwal.
@@ -17,3 +19,4 @@ def continue_crawl(search_history, target_url, max_steps=25):
 def web_crawl():
     while continue_crawl(article_chain, target_url):
         first_link = find_first_link(article_chain[-1])
+        time.sleep(2)

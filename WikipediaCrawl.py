@@ -13,3 +13,7 @@ def continue_crawl(search_history, target_url, max_steps=25):
         return False
     else:
         return True
+
+def web_crawl():
+    while continue_crawl(article_chain, target_url):
+        first_link = find_first_link(article_chain[-1])

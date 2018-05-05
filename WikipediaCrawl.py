@@ -8,7 +8,7 @@ html = response.text
 soup = BeautifulSoup(html, 'html.parser')
 print(soup.find(id="firstHeading"))
 
-def continue_crawl(search_history, target_url):
+def continue_crawl(search_history, target_url, max_steps=25):
     """
     Determine whether we continue crwal.
 
@@ -17,7 +17,7 @@ def continue_crawl(search_history, target_url):
     """
     if search_history[-1] == target_url:
         return False
-    elif len(search_history) > 25:
+    elif len(search_history) > max_steps:
         return False
     elif search_history[-1] in search_history[:-1]:
         return False
